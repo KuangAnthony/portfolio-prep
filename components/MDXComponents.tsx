@@ -4,10 +4,9 @@ import Image from 'next/image';
 import type { ImageProps } from 'next/image';
 
 const CustomLink = (props: LinkProps & { href: string; children: string }) => {
-  const isInternalLink =
-    props.href && (props.href.startsWith('/') || props.href.startsWith('#'));
+  const isExternalLink = props.href && props.href.startsWith('https');
 
-  if (isInternalLink) {
+  if (!isExternalLink) {
     return (
       <Link href={props.href}>
         <a>{props.children}</a>

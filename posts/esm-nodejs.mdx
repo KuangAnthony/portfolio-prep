@@ -1,23 +1,15 @@
 ---
 title: ES modules in Node
-publishedOn: Sun Feb 28 2021 13:32:16 GMT+0200 (Central Africa Time)
-author: Makuza Makuza Verite
+publishedOn: 6/26/2021
+author: Anthony Kuang
 summary: Standard Module system for JavaScript
-slug: esm-nodejs
-url: https://codekin.tech/esm-nodejs
-image: /images/esm.jpg
-isPublished: true
 ---
 
-## Table of Contents
-
-## History
+# History
 
 With the introduction of Nodejs in May of 2009 it's [module](https://www.computerhope.com/jargon/m/module.htm) system was [CommonJS](https://en.wikipedia.org/wiki/CommonJS) by default. It was created in January of 2009 to address the lack of a standard way for structuring and organizing JavaScript codes. ever since then it was the standard that Nodejs uses when working with modules.
 
 For more information, check out my [blog!](/)
-
-![This is an image](/images/sunflower.jpg)
 
 ```js
 //CommonJS code example
@@ -41,7 +33,7 @@ export function sayHello() {
 }
 ```
 
-### ESModules Vs CommonJS
+## ESModules Vs CommonJS
 
 1. EsModule have a declarative syntax (for importing and exporting) while commonjs use `require` syntax
 1. EsModules can be statically Imported.
@@ -74,7 +66,7 @@ You might be thinking that why es modules while [Babel](https://babeljs.io/) alr
 3. Esm is async and Supports top level await, Babel transpiration is not and doesn't.
 4. ESM is native, Babel is a transpiration.
 
-### How to use ESmodules
+# How to use ESmodules
 
 Currently all major Browsers supports [ESModules natively](https://caniuse.com/?search=esm), so there is no need to load a big, giant bundled file which can make the performance slow. you can split it into small pieces. using esmodules will make browsers loading each module as needed. which can make your applications faster. to use esmodules in Browsers all you need todo is adding `type="module"` in script tag
 
@@ -104,10 +96,10 @@ If you are Using typeScript in your workflow, you can configure the compiler to 
 }
 ```
 
-### Resources
+## Resources
 
 - [NodeConf Talk](https://www.youtube.com/watch?v=mMEKrHmZLpQ)
 - [TC39 SPEC](https://tc39.es/ecma262/#sec-modules)
 - [Nodejs Documentation](https://nodejs.org/api/esm.html#esm_modules_ecmascript_modules)
 - [Mozilla Blog](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/)
-- [Git Submodules](/blog/git-submodules)
+- [Git Submodules](git-submodules)

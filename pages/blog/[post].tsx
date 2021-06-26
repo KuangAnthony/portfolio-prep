@@ -2,6 +2,7 @@ import type { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { ParsedUrlQuery } from 'querystring';
+import BlogLayout from '@components/layouts/BlogLayout';
 import MDXComponents from '@components/MDXComponents';
 import { getAllSlugs, getPostBySlug } from '@lib/mdx';
 
@@ -16,9 +17,9 @@ interface PostParams extends ParsedUrlQuery {
 
 const Post = ({ mdxSource, frontMatter }: PostProps) => {
   return (
-    <article>
+    <BlogLayout frontMatter={frontMatter}>
       <MDXRemote {...mdxSource} components={MDXComponents} />
-    </article>
+    </BlogLayout>
   );
 };
 

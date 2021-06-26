@@ -2,6 +2,10 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
+import rehypeWrap from 'rehype-wrap';
+import rehypePrism from '@mapbox/rehype-prism';
+import rehypeSlug from 'rehype-slug';
+import rehypeTOC from '@jsdevtools/rehype-toc';
 
 const root = process.cwd();
 
@@ -18,7 +22,17 @@ export const getPostBySlug = async (slug: string) => {
     'utf-8'
   );
   const { content, data } = matter(source);
-  const mdxSource = await serialize(content);
+  const mdxSource = await serialize(content, {
+    mdxOptions: {
+      remarkPlugins: [],
+      rehypePlugins: [
+        [rehypeWrap, { wrapper: 'main' }],
+        rehypePrism,
+        rehypeSlug,
+        [rehypeTOC, { position: 'beforebegin' }],
+      ],
+    },
+  });
 
   return {
     mdxSource,
