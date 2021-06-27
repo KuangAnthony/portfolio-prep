@@ -23,8 +23,16 @@ const CustomLink = (props: LinkProps & { href: string; children: string }) => {
 
 const CustomImage = (props: ImageProps & { src: string }) => {
   return (
-    <figure className='relative h-64 w-96'>
-      <Image src={props.src} alt={props.alt} layout='fill' objectFit='cover' />
+    <figure>
+      <div className='relative h-96 w-full'>
+        <Image
+          src={props.src}
+          alt={props.alt}
+          layout='fill'
+          objectFit='cover'
+        />
+      </div>
+      <figcaption className='text-center'>{props.alt}</figcaption>
     </figure>
   );
 };

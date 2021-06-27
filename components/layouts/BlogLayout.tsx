@@ -4,7 +4,7 @@ type BlogLayoutProps = {
 };
 
 const BlogLayout = ({ children, frontMatter }: BlogLayoutProps) => {
-  return <article className='prose prose-lg mx-auto'>{children}</article>;
+  return <article className='prose mx-auto'>{children}</article>;
 };
 
 export default BlogLayout;
