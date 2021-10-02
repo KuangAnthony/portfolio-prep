@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
+import remarkUnwrapImages from 'remark-unwrap-images';
 import rehypeWrap from 'rehype-wrap';
 import rehypePrism from '@mapbox/rehype-prism';
 import rehypeSlug from 'rehype-slug';
@@ -24,7 +25,7 @@ export const getPostBySlug = async (slug: string) => {
   const { content, data } = matter(source);
   const mdxSource = await serialize(content, {
     mdxOptions: {
-      remarkPlugins: [],
+      remarkPlugins: [remarkUnwrapImages],
       rehypePlugins: [
         [rehypeWrap, { wrapper: 'main' }],
         rehypePrism,

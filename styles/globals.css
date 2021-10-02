@@ -1,4 +1,9 @@
 @tailwind base;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
 @import 'fonts.css';
 
 @tailwind components;
